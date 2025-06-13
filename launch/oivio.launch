@@ -1,0 +1,17 @@
+<launch>
+    <arg name="config_path" default = "$(find air_vo)/configs/configs_oivio.yaml" />
+    <arg name="dataroot" default = "/home/lqy/ros_bag_data/oivio/TN_100_GV_01" />
+    <arg name="camera_config_path" default = "$(find air_vo)/configs/oivio.yaml" />
+    <arg name="model_dir" default = "$(find air_vo)/output" />
+    <arg name="saving_dir" default = "/home/lqy/air_vo_zed2i_/src/AirVO/AirVO_output/oivio" />
+    <arg name="traj_path" default = "/home/lqy/air_vo_zed2i_/src/AirVO/AirVO_output/oivio/traj.txt" />
+
+    <node name="air_vo" pkg="air_vo" type="air_vo" output="screen">
+      <param name="config_path" type="string" value="$(arg config_path)" />
+      <param name="dataroot" type="string" value="$(arg dataroot)" />
+      <param name="camera_config_path" type="string" value="$(arg camera_config_path)" />
+      <param name="model_dir" type="string" value="$(arg model_dir)" />
+      <param name="saving_dir" type="string" value="$(arg saving_dir)" />
+      <param name="traj_path" type="string" value="$(arg traj_path)" />
+    </node>
+</launch>		

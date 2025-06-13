@@ -1,0 +1,59 @@
+%YAML:1.0
+
+# 图片的长宽决定着特征提取后，特征点网络的大小
+image_width: 960
+image_height: 540
+
+# stereo baseline times fx
+bf: 25.2
+
+depth_lower_thr: 0.3
+depth_upper_thr: 20
+max_y_diff: 2 # 根据两个相机的基线距离、最小深度、最大深度，来确定最小像素差和最大像素差。至于y方向，做个事后诸葛亮？
+
+# radial-tangential: 0, equidistant/fisheye: 1
+distortion_type: 0
+
+# stereo rectification
+LEFT.D: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [0.0, 0.0, 0.0,0.0,0.0]
+LEFT.K: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [534.59, 0.0, 639.625, 0.0, 534.55, 364.56, 0.0, 0.0, 1.0]
+LEFT.R:  !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0]
+LEFT.P:  !!opencv-matrix
+   rows: 3
+   cols: 4
+   dt: d
+   data: [534.59, 0, 639.625, 0,  0,534.55, 364.56, 0,  0, 0, 1, 0]
+
+
+RIGHT.D: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [0.0, 0.0, 0.0,0.0,0.0]
+RIGHT.K: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [535.02, 0.0, 644.315, 0.0, 535.215, 364.96, 0.0, 0.0, 1]
+RIGHT.R:  !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0]
+RIGHT.P:  !!opencv-matrix
+   rows: 3
+   cols: 4
+   dt: d
+   data: [535.029, 0, 644.315, -0.12, 0, 535.215, 364.96, 0, 0, 0, 1, 0]

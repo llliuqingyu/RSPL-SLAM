@@ -1,0 +1,24 @@
+<launch>
+    <arg name="config_path" default = "$(find air_vo)/configs/configs_oivio.yaml" />
+    <arg name="camera_config_path" default = "$(find air_vo)/configs/oivio.yaml" />
+    <arg name="model_dir" default = "$(find air_vo)/output" />
+
+    <arg name="saving_dir" default = "$(find air_vo)/AirVO_output/oivio/" />
+    <arg name="traj_path" default = "$(find air_vo)/AirVO_output/oivio/our_oivio_TN_100_GV_01.txt" />
+
+    <arg name="left_topic" default = "/zed2i/zed_node/left/image_rect_color" />
+    <arg name="right_topic" default = "/zed2i/zed_node/right/image_rect_color" />
+
+    <node name="air_vo_ros" pkg="air_vo" type="air_vo_ros" output="screen">
+      <param name="config_path" type="string" value="$(arg config_path)" />
+      <param name="camera_config_path" type="string" value="$(arg camera_config_path)" />
+      <param name="model_dir" type="string" value="$(arg model_dir)" />
+      <param name="saving_dir" type="string" value="$(arg saving_dir)" />
+      <param name="traj_path" type="string" value="$(arg traj_path)" />
+      <param name="left_topic" type="string" value="$(arg left_topic)" />
+      <param name="right_topic" type="string" value="$(arg right_topic)" />
+    </node>
+
+    <!-- Visualization -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find air_vo)/configs/zed2i.rviz" output="screen" />
+</launch>

@@ -1,0 +1,17 @@
+<launch>
+    <arg name="config_path" default = "/home/master/catkin_ws_airVO/src/AirVO/configs/configs_euroc.yaml" />
+    <arg name="dataroot" default = "/home/master/桌面/AirVO_dataset/V1_02_medium/mav0" />
+    <arg name="camera_config_path" default = "/home/master/catkin_ws_airVO/src/AirVO/configs/euroc.yaml" />
+    <arg name="model_dir" default = "/home/master/catkin_ws_airVO/src/AirVO/output" />
+    <arg name="saving_dir" default = "/home/master/桌面/AirVO_output/euroc/V1_02_medium" />
+    <arg name="traj_path" default = "/home/master/桌面/AirVO_output/euroc/V1_02_medium/traj.txt" />
+
+    <node name="air_vo" pkg="air_vo" type="air_vo" output="screen">
+      <param name="config_path" type="string" value="$(arg config_path)" />
+      <param name="dataroot" type="string" value="$(arg dataroot)" />
+      <param name="camera_config_path" type="string" value="$(arg camera_config_path)" />
+      <param name="model_dir" type="string" value="$(arg model_dir)" />
+      <param name="saving_dir" type="string" value="$(arg saving_dir)" />
+      <param name="traj_path" type="string" value="$(arg traj_path)" />
+    </node>
+</launch>		
